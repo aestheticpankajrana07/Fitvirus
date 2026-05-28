@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FITVIRUS — Somnath Ray | Calisthenics Athlete · Fitness Creator · Sundargarh, Odisha</title>
+<meta name="description" content="Fitvirus (Somnath Ray) — Leading fitness creator and calisthenics athlete from Sundargarh, Odisha. World Book of Records UK holder. YouTube @fitvirus">
+<meta name="keywords" content="Fitvirus YouTube, Somnath Ray fitness creator, Sundargarh fitness influencer, Calisthenics India creator, Odisha gym YouTuber, fitness storytelling website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050505;
+    --deep: #0a0a0a;
+    --grey: #111111;
+    --muted: #1a1a1a;
+    --border: #222;
+    --red: #e50000;
+    --red-dim: #8b0000;
+    --gold: #c9a84c;
+    --white: #f5f0eb;
+    --off: #a89880;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(229,0,0,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.15s ease-out;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    mix-blend-mode: normal;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.9) 0%, transparent 100%);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--red); }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--off);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--red); }
+
+  /* HERO */
+  #hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/mnt/user-data/uploads/1000088935.png');
+    background-size: cover;
+    background-position: center top;
+    filter: brightness(0.35) contrast(1.2) saturate(0.7);
+    transform: scale(1.05);
+    animation: heroZoom 20s ease-out forwards;
+  }
+  @keyframes heroZoom {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.0); }
+  }
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .hero-red-line {
+    position: absolute;
+    left: 0; top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--red);
+    opacity: 0.8;
+  }
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(5,5,5,0.8) 100%);
+  }
+  .hero-bottom-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(to top, var(--black) 0%, transparent 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 80px 80px;
+    width: 100%;
+    animation: heroReveal 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  @keyframes heroReveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--red);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(5rem, 15vw, 14rem);
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero-title span {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--red);
+  }
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    color: var(--off);
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid var(--red);
+    transition: all 0.3s;
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--red);
+  }
+  .btn-secondary {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--off);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--white);
+    color: var(--white);
+  }
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-scroll-hint span {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: var(--off);
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--off), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* SECTION BASE */
+  section {
+    position: relative;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 100px;
+  }
+
+  /* INTRO QUOTE */
+  #intro-quote {
+    padding: 120px 80px;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .quote-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .quote-number {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: var(--border);
+    line-height: 1;
+  }
+  .quote-left img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(20%) contrast(1.1);
+  }
+  .quote-right blockquote {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 1.4;
+    color: var(--white);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .quote-right blockquote em {
+    color: var(--red);
+    font-style: normal;
+  }
+  .quote-attribution {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--off);
+    text-transform: uppercase;
+  }
+
+  /* STORY CHAPTERS */
+  #story {
+    background: var(--deep);
+  }
+  .story-header {
+    padding: 80px 80px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .story-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 6rem);
+    letter-spacing: 0.05em;
+  }
+  .story-header p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--off);
+    max-width: 300px;
+    text-align: right;
+  }
+
+  .chapter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90vh;
+    border-bottom: 1px solid var(--border);
+  }
+  .chapter:nth-child(even) { direction: rtl; }
+  .chapter:nth-child(even) > * { direction: ltr; }
+
+  .chapter-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.8) contrast(1.15) saturate(0.85);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .chapter:hover .chapter-image img {
+    transform: scale(1.04);
+  }
+  .chapter-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(5,5,5,0.3) 0%, transparent 60%);
+  }
+  .chapter:nth-child(even) .chapter-image-overlay {
+    background: linear-gradient(to left, rgba(5,5,5,0.3) 0%, transparent 60%);
+  }
+  .chapter-num-bg {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    font-family: var(--font-display);
+    font-size: 18rem;
+    color: rgba(229,0,0,0.06);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .chapter-text {
+    padding: 80px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+  }
+  .chapter-num {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .chapter-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+  }
+  .chapter-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+  }
+  .chapter-body {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--off);
+    font-weight: 300;
+  }
+  .chapter-body strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+  .chapter-pull {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--white);
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  /* ACHIEVEMENTS */
+  #achievements {
+    padding: 120px 80px;
+    background: var(--black);
+  }
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+  .achievement-card {
+    background: var(--grey);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .achievement-card:hover { background: var(--muted); }
+  .achievement-card:hover::before { transform: scaleX(1); }
+  .achievement-card.featured {
+    grid-column: span 2;
+    background: var(--grey);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .achievement-card.featured::before { transform: scaleX(1); background: var(--gold); }
+  .achievement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  .achievement-badge {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: rgba(229,0,0,0.08);
+    border: 1px solid rgba(229,0,0,0.2);
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .achievement-card.featured .achievement-badge {
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+    border-color: rgba(201,168,76,0.2);
+  }
+  .achievement-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .achievement-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--off);
+    line-height: 1.7;
+  }
+  .achievement-date {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-top: 16px;
+  }
+  .achievement-featured-image {
+    position: relative;
+  }
+  .achievement-featured-image img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: top;
+    filter: sepia(20%) contrast(1.1);
+  }
+  .wbr-badge {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+  }
+
+  /* FULL-WIDTH IMAGE BREAK */
+  .image-break {
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .image-break img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.5) contrast(1.2) saturate(0.7);
+    transform: scale(1.05);
+  }
+  .image-break-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5,5,5,0.3);
+  }
+  .image-break-text {
+    text-align: center;
+  }
+  .image-break-text h3 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 8rem);
+    letter-spacing: 0.1em;
+    color: var(--white);
+    mix-blend-mode: normal;
+  }
+  .image-break-text p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--off);
+    margin-top: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  /* GALLERY */
+  #gallery {
+    padding: 120px 80px;
+    background: var(--deep);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 4px;
+    margin-top: 64px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gallery-item:nth-child(5) { grid-column: span 2; }
+  .gallery-item:nth-child(7) { grid-column: span 2; grid-row: span 2; }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(15%) contrast(1.05);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .gallery-item:hover img {
+    filter: grayscale(0%) contrast(1.1) brightness(0.85);
+    transform: scale(1.04);
+  }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(229,0,0,0);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    transition: background 0.4s;
+  }
+  .gallery-item:hover .gallery-item-overlay {
+    background: rgba(229,0,0,0.08);
+  }
+  .gallery-item-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: transparent;
+    text-transform: uppercase;
+    transition: color 0.4s;
+  }
+  .gallery-item:hover .gallery-item-label {
+    color: rgba(245,240,235,0.7);
+  }
+
+  /* YOUTUBE */
+  #youtube {
+    padding: 120px 80px;
+    background: var(--black);
+  }
+  .yt-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  .yt-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    letter-spacing: 0.05em;
+  }
+  .yt-header h2 span { color: var(--red); }
+  .yt-header-right p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--off);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .yt-embed-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: var(--grey);
+    border: 1px solid var(--border);
+  }
+  .yt-embed-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .yt-embed-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--grey);
+  }
+  .yt-play-btn {
+    width: 72px; height: 72px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .yt-play-btn svg { fill: white; margin-left: 4px; }
+  .yt-fallback-text {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: var(--off);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* SOCIAL */
+  #social {
+    padding: 120px 80px;
+    background: var(--deep);
+  }
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+  .social-card {
+    background: var(--grey);
+    padding: 48px 40px;
+    border-top: 3px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+  .social-card:hover {
+    border-color: var(--red);
+    background: var(--muted);
+  }
+  .social-platform {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: var(--off);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .social-platform .dot {
+    width: 6px; height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+  }
+  .social-handle {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .social-desc {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--off);
+    line-height: 1.7;
+  }
+  .social-arrow {
+    margin-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--red);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* CALISTHENICS SHOWCASE */
+  #calisthenics {
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+  .cali-image {
+    position: relative;
+    overflow: hidden;
+  }
+  .cali-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7) contrast(1.2);
+  }
+  .cali-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 50%, var(--black) 100%);
+  }
+  .cali-content {
+    padding: 80px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+    background: var(--black);
+  }
+  .cali-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+  }
+  .cali-content h2 span { color: var(--red); }
+  .cali-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pillar:hover {
+    border-color: var(--red);
+    background: rgba(229,0,0,0.03);
+  }
+  .pillar-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--red);
+    line-height: 1;
+    min-width: 40px;
+  }
+  .pillar-text h4 {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .pillar-text p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--off);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+  }
+  .footer-brand {}
+  .footer-brand .logo {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .footer-brand .logo span { color: var(--red); }
+  .footer-brand p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--off);
+    line-height: 1.7;
+    max-width: 300px;
+  }
+  .footer-col h5 {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.4em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
+  .footer-col ul li a {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--off);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom {
+    grid-column: span 3;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--off);
+    text-transform: uppercase;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    #hero .hero-content { padding: 0 24px 60px; }
+    .hero-scroll-hint { display: none; }
+    #intro-quote { grid-template-columns: 1fr; padding: 60px 24px; }
+    .quote-left img { display: none; }
+    .story-header { flex-direction: column; gap: 20px; padding: 40px 24px; }
+    .story-header p { text-align: left; }
+    .chapter { grid-template-columns: 1fr; min-height: auto; }
+    .chapter:nth-child(even) { direction: ltr; }
+    .chapter-image { height: 50vw; min-height: 260px; }
+    .chapter-text { padding: 40px 24px; }
+    #achievements { padding: 60px 24px; }
+    .achievements-grid { grid-template-columns: 1fr; }
+    .achievement-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    #gallery { padding: 60px 24px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:nth-child(1) { grid-column: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-item:nth-child(7) { grid-column: span 2; }
+    #youtube { padding: 60px 24px; }
+    .yt-header { grid-template-columns: 1fr; }
+    #social { padding: 60px 24px; }
+    .social-grid { grid-template-columns: 1fr; }
+    #calisthenics { grid-template-columns: 1fr; }
+    .cali-image { height: 60vw; min-height: 280px; }
+    .cali-content { padding: 40px 24px; }
+    footer { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+    .footer-bottom { grid-column: span 1; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">FIT<span>VIRUS</span></a>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#youtube">YouTube</a></li>
+    <li><a href="#social">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-red-line"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-bottom-fade"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Sundargarh · Odisha · Western India</div>
+    <h1 class="hero-title">FIT<span>VIRUS</span></h1>
+    <p class="hero-subtitle">Calisthenics Athlete &nbsp;•&nbsp; Fitness Creator &nbsp;•&nbsp; Story of Discipline</p>
+    <div class="hero-ctas">
+      <a href="https://youtube.com/@fitvirus" target="_blank" class="btn-primary">Watch YouTube</a>
+      <a href="#story" class="btn-secondary">Explore Journey</a>
+      <a href="#gallery" class="btn-secondary">View Highlights</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- INTRO QUOTE -->
+<section id="intro-quote">
+  <div class="quote-left">
+    <div class="quote-number">01</div>
+    <img src="/mnt/user-data/uploads/1000088929.png" alt="Somnath Ray — Fitvirus" loading="lazy">
+  </div>
+  <div class="quote-right reveal">
+    <div class="section-label">The Beginning</div>
+    <blockquote>
+      "Strength is not built in a gym.<br>
+      It is built in the <em>silence</em> of the mind,<br>
+      before the body ever moves."
+    </blockquote>
+    <p class="quote-attribution">— Somnath Ray &nbsp;/&nbsp; @fitvirus</p>
+    <br>
+    <p style="font-family: var(--font-body); font-size: 1.05rem; color: var(--off); line-height: 1.8; margin-top: 24px;">
+      From the forests of Sundargarh to the screens of millions — Somnath Ray, known across the internet as <strong style="color: var(--white);">Fitvirus</strong>, is a calisthenics athlete, content creator, and one of the most prominent fitness voices to emerge from Western Odisha. His story is not about shortcuts. It is about showing up, every single day.
+    </p>
+  </div>
+</section>
+
+<!-- STORY CHAPTERS -->
+<section id="story">
+  <div class="story-header">
+    <h2 class="reveal">FROM<br>STRENGTH<br>TO STORY</h2>
+    <p class="reveal reveal-delay-2">A scroll-based journey through the chapters that shaped a creator, an athlete, and a movement.</p>
+  </div>
+
+  <!-- Chapter 1: Origin -->
+  <div class="chapter">
+    <div class="chapter-image">
+      <img src="/mnt/user-data/uploads/1000088927.png" alt="Origin — Fitvirus early journey" loading="lazy">
+      <div class="chapter-image-overlay"></div>
+      <div class="chapter-num-bg">I</div>
+    </div>
+    <div class="chapter-text">
+      <div class="chapter-num reveal">Chapter 01 / Origin</div>
+      <h2 class="chapter-title reveal reveal-delay-1">WHERE IT<br>ALL BEGAN</h2>
+      <div class="chapter-divider reveal reveal-delay-2"></div>
+      <p class="chapter-body reveal reveal-delay-3">
+        Sundargarh, Odisha — a land of red earth, dense forests, and iron determination. It was here that <strong>Somnath Ray</strong> first discovered what the human body could do when pushed beyond comfort. There was no blueprint, no coach, no gym membership initially. Only the raw hunger to be stronger than yesterday.
+        <br><br>
+        The forests became his training ground. The open sky, his witness. Every early morning, every aching session — it was all investment in a version of himself the world had not yet seen.
+      </p>
+      <p class="chapter-pull reveal reveal-delay-4">"The jungle doesn't care about your excuses. Neither did I."</p>
+    </div>
+  </div>
+
+  <!-- Chapter 2: Discipline -->
+  <div class="chapter">
+    <div class="chapter-image">
+      <img src="/mnt/user-data/uploads/1000088924.png" alt="Discipline — Fitvirus training" loading="lazy">
+      <div class="chapter-image-overlay"></div>
+      <div class="chapter-num-bg">II</div>
+    </div>
+    <div class="chapter-text">
+      <div class="chapter-num reveal">Chapter 02 / Discipline</div>
+      <h2 class="chapter-title reveal reveal-delay-1">THE ART OF<br>SHOWING UP</h2>
+      <div class="chapter-divider reveal reveal-delay-2"></div>
+      <p class="chapter-body reveal reveal-delay-3">
+        Discipline is the difference between a dream and a reality. Somnath built his physique and his calisthenics mastery through relentless consistency — <strong>training in every condition</strong>, pushing every boundary.
+        <br><br>
+        Calisthenics became his language. Planches on poles above mountain valleys. Human flags by the sea. Moves that seem to defy gravity — all earned through thousands of hours of deliberate practice, recovery, and mental fortitude.
+      </p>
+      <p class="chapter-pull reveal reveal-delay-4">"Every rep is a vote for the person you're becoming."</p>
+    </div>
+  </div>
+
+  <!-- Chapter 3: Content Rise -->
+  <div class="chapter">
+    <div class="chapter-image">
+      <img src="/mnt/user-data/uploads/1000088926.png" alt="Content Creation — Fitvirus with camera" loading="lazy">
+      <div class="chapter-image-overlay"></div>
+      <div class="chapter-num-bg">III</div>
+    </div>
+    <div class="chapter-text">
+      <div class="chapter-num reveal">Chapter 03 / Rise</div>
+      <h2 class="chapter-title reveal reveal-delay-1">THE CAMERA<br>FOUND HIM</h2>
+      <div class="chapter-divider reveal reveal-delay-2"></div>
+      <p class="chapter-body reveal reveal-delay-3">
+        A phone, a gimbal, and a story worth telling. Somnath didn't just decide to be a creator — he decided to document a <strong>genuine journey</strong>, and the internet responded. The @fitvirus YouTube channel began attracting viewers not with gimmicks, but with authenticity.
+        <br><br>
+        From long-form gym content to viral Shorts, each video carries the same signature: <strong>real effort, real results, real Odisha.</strong> His content became a mirror for the thousands of young fitness enthusiasts across Western India who had never seen themselves represented at this level.
+      </p>
+      <p class="chapter-pull reveal reveal-delay-4">"Don't create for the algorithm. Create for the one person who needs it."</p>
+    </div>
+  </div>
+
+  <!-- Chapter 4: Recognition -->
+  <div class="chapter">
+    <div class="chapter-image">
+      <img src="/mnt/user-data/uploads/1000088933.png" alt="Recognition — Fitvirus achievement" loading="lazy">
+      <div class="chapter-image-overlay"></div>
+      <div class="chapter-num-bg">IV</div>
+    </div>
+    <div class="chapter-text">
+      <div class="chapter-num reveal">Chapter 04 / Recognition</div>
+      <h2 class="chapter-title reveal reveal-delay-1">CERTIFIED<br>BY THE WORLD</h2>
+      <div class="chapter-divider reveal reveal-delay-2"></div>
+      <p class="chapter-body reveal reveal-delay-3">
+        On <strong>07 January 2020</strong>, Somnath Ray performed a feat that would be officially recognized by the <strong>World Book of Records, United Kingdom</strong> — one of the world's most respected record-keeping institutions. The certification was formally issued on <strong>02 July 2020</strong>.
+        <br><br>
+        This was not just a personal milestone. It was a declaration that from the forests and fields of Sundargarh, world-class athleticism is being born. A message to every young person in Odisha: your geography does not define your ceiling.
+      </p>
+      <p class="chapter-pull reveal reveal-delay-4">"From Sundargarh to the World Book of Records. Every dream has an address."</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALISTHENICS ACTION BREAK -->
+<div class="image-break">
+  <img src="/mnt/user-data/uploads/1000088939.png" alt="Fitvirus calisthenics human flag" loading="lazy">
+  <div class="image-break-overlay">
+    <div class="image-break-text">
+      <h3>DEFY GRAVITY</h3>
+      <p>Where the body meets the impossible</p>
+    </div>
+  </div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-label reveal">Verified Achievements</div>
+  <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: 0.05em;" class="reveal reveal-delay-1">MILESTONES<br>THAT MATTER</h2>
+
+  <div class="achievements-grid">
+    <div class="achievement-card featured reveal">
+      <div>
+        <span class="achievement-badge">★ World Record</span>
+        <h3 class="achievement-title">World Book of Records, UK</h3>
+        <p class="achievement-desc">
+          An internationally certified fitness record — officially recognized by the World Book of Records, United Kingdom. A testament to years of dedicated training and an unbreakable commitment to excellence from Sundargarh, Odisha.
+        </p>
+        <div class="achievement-date">
+          Performance: 07 January 2020 &nbsp;·&nbsp; Certified: 02 July 2020
+        </div>
+        <br>
+        <a href="https://youtube.com/@fitvirus" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 8px;">View Channel</a>
+      </div>
+      <div class="achievement-featured-image">
+        <img src="/mnt/user-data/uploads/1000088938.png" alt="Fitvirus World Book of Records" loading="lazy">
+        <div class="wbr-badge">WBR · UK</div>
+      </div>
+    </div>
+
+    <div class="achievement-card reveal reveal-delay-1">
+      <div class="achievement-icon">🏆</div>
+      <span class="achievement-badge">Athlete</span>
+      <h3 class="achievement-title">Calisthenics Mastery</h3>
+      <p class="achievement-desc">Advanced calisthenics skills including human flag, planche, and aerial balance — performed in extreme outdoor locations.</p>
+    </div>
+
+    <div class="achievement-card reveal reveal-delay-2">
+      <div class="achievement-icon">📺</div>
+      <span class="achievement-badge">Creator</span>
+      <h3 class="achievement-title">YouTube @fitvirus</h3>
+      <p class="achievement-desc">A growing channel of fitness content, motivational Shorts, and documentary-style training videos reaching audiences across India.</p>
+    </div>
+
+    <div class="achievement-card reveal reveal-delay-3">
+      <div class="achievement-icon">📍</div>
+      <span class="achievement-badge">Regional</span>
+      <h3 class="achievement-title">Odisha's Prominent Creator</h3>
+      <p class="achievement-desc">A leading fitness creator from Western Odisha, bringing representation and inspiration to the region's fitness community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label reveal">Photo Gallery</div>
+  <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: 0.05em;" class="reveal reveal-delay-1">FRAMES<br>OF A JOURNEY</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="/mnt/user-data/uploads/1000088935.png" alt="Fitvirus fitness athlete" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Athlete</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-1">
+      <img src="/mnt/user-data/uploads/1000088929.png" alt="Fitvirus portrait" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Portrait</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-2">
+      <img src="/mnt/user-data/uploads/1000088932.png" alt="Fitvirus nature" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Nature</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-1">
+      <img src="/mnt/user-data/uploads/1000088934.png" alt="Fitvirus training" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Training</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-2">
+      <img src="/mnt/user-data/uploads/1000088940.png" alt="Fitvirus expression" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Expression</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-1">
+      <img src="/mnt/user-data/uploads/1000088930.png" alt="Fitvirus outdoor" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Outdoor</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-2">
+      <img src="/mnt/user-data/uploads/1000088931.png" alt="Fitvirus culture" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Culture</span></div>
+    </div>
+    <div class="gallery-item reveal reveal-delay-3">
+      <img src="/mnt/user-data/uploads/1000088925.png" alt="Fitvirus creator" loading="lazy">
+      <div class="gallery-item-overlay"><span class="gallery-item-label">Creator</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="youtube">
+  <div class="yt-header">
+    <div>
+      <div class="section-label reveal">YouTube Channel</div>
+      <h2 class="reveal reveal-delay-1">WATCH THE<br><span>STORY</span><br>UNFOLD</h2>
+    </div>
+    <div class="yt-header-right reveal reveal-delay-2">
+      <p>Every video is a chapter. Every Short is a moment. Subscribe to the @fitvirus YouTube channel to follow the ongoing story of calisthenics, discipline, and authentic fitness from Odisha.</p>
+      <a href="https://youtube.com/@fitvirus" target="_blank" class="btn-primary">Subscribe on YouTube</a>
+    </div>
+  </div>
+  <div class="yt-embed-container reveal">
+    <iframe
+      src="https://www.youtube.com/embed?listType=user_uploads&list=fitvirus&autoplay=0"
+      title="Fitvirus YouTube Channel"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+    <div class="yt-embed-fallback" id="yt-fallback" style="display:none;">
+      <div class="yt-play-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <p class="yt-fallback-text">@fitvirus on YouTube<br>Click to visit channel</p>
+      <a href="https://youtube.com/@fitvirus" target="_blank" class="btn-primary" style="margin-top:8px;">Open YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALISTHENICS SECTION -->
+<section id="calisthenics">
+  <div class="cali-image">
+    <img src="/mnt/user-data/uploads/1000088941.png" alt="Fitvirus calisthenics sea planche" loading="lazy">
+    <div class="cali-image-overlay"></div>
+  </div>
+  <div class="cali-content">
+    <div class="section-label">Fitness Identity</div>
+    <h2>THE THREE<br>PILLARS OF<br><span>FITVIRUS</span></h2>
+    <div class="cali-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-text">
+          <h4>Strength</h4>
+          <p>Not just muscular — mental. The ability to endure when others quit, to push when the body says stop. Built through calisthenics, built through life.</p>
+        </div>
+      </div>
+      <div class="pillar reveal reveal-delay-1">
+        <div class="pillar-num">02</div>
+        <div class="pillar-text">
+          <h4>Discipline</h4>
+          <p>No shortcuts, no off-days. Every session matters. The compound effect of small, consistent actions is what transforms a person from ordinary to extraordinary.</p>
+        </div>
+      </div>
+      <div class="pillar reveal reveal-delay-2">
+        <div class="pillar-num">03</div>
+        <div class="pillar-text">
+          <h4>Consistency</h4>
+          <p>The most unglamorous ingredient of success. Fitvirus has built everything — physique, audience, record — on the foundation of showing up, day after day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section id="social">
+  <div class="section-label reveal">Connect & Follow</div>
+  <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: 0.05em;" class="reveal reveal-delay-1">JOIN THE<br>MOVEMENT</h2>
+
+  <div class="social-grid">
+    <a href="https://youtube.com/@fitvirus" target="_blank" class="social-card reveal">
+      <div class="social-platform"><span class="dot"></span>YouTube</div>
+      <div class="social-handle">@fitvirus</div>
+      <p class="social-desc">Fitness tutorials, calisthenics training, motivational content, and documentary-style vlogs from Odisha.</p>
+      <div class="social-arrow">Subscribe →</div>
+    </a>
+    <a href="https://instagram.com/fitvirus_" target="_blank" class="social-card reveal reveal-delay-1">
+      <div class="social-platform"><span class="dot"></span>Instagram</div>
+      <div class="social-handle">@fitvirus_</div>
+      <p class="social-desc">Daily training updates, reels, behind-the-scenes moments, and the lifestyle of a calisthenics athlete.</p>
+      <div class="social-arrow">Follow →</div>
+    </a>
+    <div class="social-card reveal reveal-delay-2" style="cursor:default;">
+      <div class="social-platform"><span class="dot"></span>World Record</div>
+      <div class="social-handle">WBR · UK</div>
+      <p class="social-desc">World Book of Records, United Kingdom. A certified achievement representing Sundargarh, Odisha on the world stage.</p>
+      <div class="social-arrow" style="color:var(--gold);">Certified ✓</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOREST BREAK -->
+<div class="image-break" style="height: 60vh;">
+  <img src="/mnt/user-data/uploads/1000088937.png" alt="Fitvirus — arms wide in forest" loading="lazy">
+  <div class="image-break-overlay" style="background: rgba(5,5,5,0.5);">
+    <div class="image-break-text">
+      <h3 style="font-size: clamp(2rem, 6vw, 6rem);">SOMNATH RAY</h3>
+      <p>Calisthenics Athlete · Fitness Creator · Sundargarh, Odisha</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo">FIT<span>VIRUS</span></div>
+    <p>A cinematic story of strength, discipline, and consistency — emerging from Sundargarh, Odisha to inspire the world.</p>
+  </div>
+  <div class="footer-col">
+    <h5>Navigate</h5>
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#social">Connect</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h5>Social</h5>
+    <ul>
+      <li><a href="https://youtube.com/@fitvirus" target="_blank">YouTube @fitvirus</a></li>
+      <li><a href="https://instagram.com/fitvirus_" target="_blank">Instagram @fitvirus_</a></li>
+    </ul>
+    <br>
+    <h5>Location</h5>
+    <ul>
+      <li><a href="#">Sundargarh, Odisha</a></li>
+      <li><a href="#">Western India</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Fitvirus Team — Somnath Ray. All Rights Reserved. &nbsp;·&nbsp; Built by <strong style="color:var(--white);">Intix Inc.</strong></p>
+    <p>Calisthenics Athlete · Fitness Creator · World Book of Records, UK · Sundargarh, Odisha</p>
+  </div>
+</footer>
+
+<script>
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx - 4 + 'px';
+    cursor.style.top = my - 4 + 'px';
+  });
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx - 18 + 'px';
+    ring.style.top = ry - 18 + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { ring.style.transform = 'scale(1.6)'; cursor.style.transform = 'scale(1.5)'; });
+    el.addEventListener('mouseleave', () => { ring.style.transform = 'scale(1)'; cursor.style.transform = 'scale(1)'; });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach(r => observer.observe(r));
+
+  // Parallax hero
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero-bg');
+    if (hero) {
+      const scroll = window.scrollY;
+      hero.style.transform = `scale(1.05) translateY(${scroll * 0.25}px)`;
+    }
+  });
+
+  // YT embed fallback
+  const iframe = document.querySelector('.yt-embed-container iframe');
+  if (iframe) {
+    iframe.addEventListener('error', () => {
+      iframe.style.display = 'none';
+      document.getElementById('yt-fallback').style.display = 'flex';
+    });
+    setTimeout(() => {
+      // Show fallback if iframe hasn't loaded in a sandboxed environment
+      if (!iframe.contentDocument) {
+        document.getElementById('yt-fallback').style.display = 'flex';
+        iframe.style.display = 'none';
+      }
+    }, 3000);
+  }
+</script>
+</body>
+</html>
